@@ -39,7 +39,7 @@ BEGIN
 	---------------------------------------------------------------------------------------------------
 	IF object_ID('tempdb..#SetupTbl') is not null DROP TABLE #SetupTbl
 	CREATE TABLE #SetupTbl(LevelID VARCHAR(255), Field DECIMAL(38,10), Quantile INT)
-
+	
 	EXEC
 	('
 		INSERT INTO #SetupTbl(LevelID, Field)
