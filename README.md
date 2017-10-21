@@ -6,6 +6,7 @@ projects, just download the particular file you are interested in.
 ## Contents
 
 * [ConfigureTbl](configuretbl)
+* [Quantile](quantile)
 
 ### ConfigureTbl
 
@@ -16,3 +17,8 @@ datatype of each field, and convert/format appropriately, as well as clean field
 that does not require brackets.
 
 The procedure was built for SQL Server 2014.
+
+## Quantile
+
+Quantiles the specified table with respect to the specified field, and inserts a new quantile field 
+into that table. 
