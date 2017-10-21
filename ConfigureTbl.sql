@@ -50,7 +50,7 @@ BEGIN
 		FROM ' + @DB + '.sys.columns c
 		JOIN ' + @DB + '.sys.types ty ON c.user_type_id = ty.user_type_id
 		LEFT OUTER JOIN ' + @DB + '.sys.index_columns i ON c.[object_id] = i.[object_id]
-													   AND c.column_id = i.column_id
+                                                               AND c.column_id = i.column_id
 		WHERE c.[object_id] = object_id(''' + @Table + ''')
 	'
 	EXEC(@Query)
