@@ -5,8 +5,8 @@ projects, just download the particular file you are interested in.
 
 ## Contents
 
-* [ConfigureTbl](configuretbl)
-* [Quantile](quantile)
+* [ConfigureTbl](#configuretbl)
+* [Quantile](#quantile)
 
 ### ConfigureTbl
 
