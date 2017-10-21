@@ -27,7 +27,7 @@ ALTER PROCEDURE [dbo].[Quantile]
 	@Field VARCHAR(255),
 	@Level VARCHAR(255) = 'UniverseID',
 	@Base  INT          = 10,
-	@Type  INT          = 2,
+	@Type  INT          = 1,
 	@IncludeZeros BIT   = 0,
 	@Reproducible BIT   = 1
 AS
