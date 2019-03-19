@@ -11,21 +11,29 @@ GO
 --              field into that table. 
 --
 -- Variables: @Table        = Table containing the field to be evaluated for quantiles
---            @Field        = Field to quantile (usually a TRx field)
+--            @Field        = Field to sort for creating quantiles
 --            @Level        = ID field for each observation to quantile (PrimaryKey, Zip Code, etc) 
 --            @Base         = Base for the quantiling (10 for decile, 3 for tercile, etc)
---            @Type         = 1, Quantile observations (make buckets with equal number of observations)
---                          = 2, Quantile values (make buckets with approx. equal total volume)
+--            @Type         = 1, Each quantile will have an equal number of observations, and decreasing 
+--                               aggregate values (based on @Field)
+--                          = 2, Each quantile will have approx. equal aggregate value (based on @Field), and 
+--                               increasing number of observations
 --            @IncludeZeros = 1, Observations with value of zero included in quantiling
 --                          = 0, Observations with value of zero put into separate '0' quantile
 --            @Reproducible = 1, Each run will contain the same observations in each quantile
 --                            0, Each run may contain different observations in each quantile, due to multiple
 --                               observations sharing the same value
+--
+-- Details: This code is able to quantile individual observations or groups of observations. For example,
+--          to quantile each individual physician based on Rx writing, set @Level to the field containing the
+--          physicians' unique IDs. To quantile entire zip codes, set @Level to the field containing the
+--          physicians' zip codes. The code will automatically aggregate zip code and quantile at that level,
+--          and each physician in that zip code will receive the same quantile.
 -- =============================================================================================================
 ALTER PROCEDURE [dbo].[Quantile]
 	@Table VARCHAR(255),
 	@Field VARCHAR(255),
-	@Level VARCHAR(255) = 'UniverseID',
+	@Level VARCHAR(255),
 	@Base  INT          = 10,
 	@Type  INT          = 1,
 	@IncludeZeros BIT   = 0,
