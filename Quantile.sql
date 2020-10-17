@@ -10,14 +10,14 @@ GO
 -- Description: Quantiles the specified table with respect to the specified field, and inserts a new quantile 
 --              field into that table. 
 --
--- Variables: @Table        = Table containing the field to be evaluated for quantiles
+-- Variables: @Table        = Name of table containing the field to be evaluated for quantiles
 --            @Field        = Field to sort for creating quantiles
 --            @Level        = ID field for each observation to quantile (PrimaryKey, Zip Code, etc) 
 --            @Base         = Base for the quantiling (10 for decile, 3 for tercile, etc)
 --            @Type         = 1, Each quantile will have an equal number of observations, and decreasing 
 --                               aggregate values (based on @Field)
 --                          = 2, Each quantile will have approx. equal aggregate value (based on @Field), and 
---                               increasing number of observations
+--                               decreasing number of observations
 --            @IncludeZeros = 1, Observations with value of zero included in quantiling
 --                          = 0, Observations with value of zero put into separate '0' quantile
 --            @Reproducible = 1, Each run will contain the same observations in each quantile
